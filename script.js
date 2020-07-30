@@ -3,20 +3,14 @@ const btn = document.querySelector('button');
 
 //Create grid
 function createGrid(num){    
+    container.style.setProperty('--grid-rows', num)
+    container.style.setProperty('--grid-cols', num)
     
-    for(let i = 0; i < num ; i++){
-        // let row = document.createElement('div');
-        // row.className = "row";
-
-        // container.appendChild(row);
-
-        for(let j = 0; j < num; j++){
+    for(let i = 0; i < num * num ; i++){
             let box = document.createElement('div');
             box.className = "box";
-            gridTemplateRows= "repeat(3, 1fr)"
 
             container.appendChild(box);
-        }
     }
 }
 
@@ -24,22 +18,30 @@ function deleteGrid(){
     container.innerHTML = "";
 }
 
-const boxes = document.querySelectorAll('.box');
+function changeGrid(num){
+    deleteGrid();
+    createGrid(num);
+}
 
-//Change color
-boxes.forEach(box => {
-    box.addEventListener('mouseenter', function (e){
-        this.style.backgroundColor="black"
-        console.log('selected box')
+
+function changeBg(){
+    let boxes = document.querySelectorAll('.box');
+
+    boxes.forEach(box => {
+        box.addEventListener('mouseenter', function (e){
+            this.style.backgroundColor ="black";
+            console.log('selected box')
+        })
     })
-})
+}
 
 
 btn.addEventListener('click', function (e) {
     let gridSize = Number(prompt('Insert a grid size', 20));
-    console.log(gridSize)
+    changeGrid(gridSize);
+    changeBg();
 })
 
+
 createGrid(16)
-
-
+changeBg();
