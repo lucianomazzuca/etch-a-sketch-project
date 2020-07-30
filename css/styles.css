@@ -8,21 +8,19 @@ h1{
 }
 
 .container{
-    max-width: 900px;
-    max-height: 500px;
+    width: 900px;
+    height: 500px;
     margin: auto;
     margin-top: 50px;
+    display: grid;
+    grid-template-columns: repeat(16, 1fr);
+    grid-template-rows: repeat(16, 1fr);
 }
 
-.row{
-    display: flex;
-    
-}
+
 
 .box{
-    height: 1em;
     border:1px solid black; 
-    flex: 1;
 }
 
 button{

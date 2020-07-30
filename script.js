@@ -3,18 +3,19 @@ const btn = document.querySelector('button');
 
 //Create grid
 function createGrid(num){    
+    
     for(let i = 0; i < num ; i++){
-        let row = document.createElement('div');
-        row.className = "row";
+        // let row = document.createElement('div');
+        // row.className = "row";
 
-        container.appendChild(row);
+        // container.appendChild(row);
 
         for(let j = 0; j < num; j++){
             let box = document.createElement('div');
             box.className = "box";
             gridTemplateRows= "repeat(3, 1fr)"
 
-            row.appendChild(box);
+            container.appendChild(box);
         }
     }
 }
@@ -39,6 +40,6 @@ btn.addEventListener('click', function (e) {
     console.log(gridSize)
 })
 
-createGrid(24)
+createGrid(16)
 
 
